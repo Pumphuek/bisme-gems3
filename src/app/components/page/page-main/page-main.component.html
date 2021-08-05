@@ -1,0 +1,55 @@
+<div class="w3-animate-bottom">
+    <app-intro 
+        image-source="/assets/images/page-main-intro.jpg" 
+        [intro-text-header]="introTextHeader.replace('\n', '<br>')" 
+        [intro-text-content]="introTextContent"
+    ></app-intro>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-5">
+                <app-deterioration></app-deterioration>
+            </div>
+            <div class="col-12 py-5">
+                <app-content-header [header]="serviceHeader" [description]="serviceDescription">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-3 py-4" *ngFor="let service of services">
+                            <app-image-card [description]="service.name" [image-source]="service.imageSource" [redirect-to]="service.redirectTo"></app-image-card>
+                        </div>
+                    </div>
+                </app-content-header>
+                <div class="d-flex justify-content-end">
+                    <a [routerLink]="['/service']" class="text-muted pointer">รายละเอียดเพิ่มเติม...</a>
+                </div>
+            </div>
+            <div class="col-12 py-5">
+                <app-content-header [header]="advantageHeader" [description]="advantageDescription">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-4 py-4" *ngFor="let advantage of advantages">
+                            <app-detail-card [image-source]="advantage.imageSource" [header-text]="advantage.headerText" [description]="advantage.description"></app-detail-card>
+                        </div>
+                    </div>
+                </app-content-header>
+            </div>
+            <div class="col-12 py-5">
+                <app-content-header [header]="reviewHeader" [description]="reviewDescription">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8 col-xl-6 py-3 rounded shadow-3">
+                            <mdb-carousel [controls]="true" [indicators]="true">
+                                <mdb-carousel-item *ngFor="let review of reviews">
+                                    <img
+                                        [src]="review.imageSource"
+                                        class="d-block w-100"
+                                    />
+                                    <div class="carousel-caption d-none d-md-block bg-light rounded mb-4">
+                                        <span class="h5 text-danger">{{review.review}}</span>
+                                        <p class="fs-5 mb-0 text-dark">{{review.customerName}}</p>
+                                    </div>
+                                </mdb-carousel-item>
+                            </mdb-carousel>
+                        </div>
+                    </div>
+                </app-content-header>
+            </div>
+        </div> 
+    </div>
+</div>

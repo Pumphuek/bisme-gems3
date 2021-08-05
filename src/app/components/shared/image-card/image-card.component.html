@@ -1,0 +1,9 @@
+<div class="hover-shadow rounded-card">
+    <div [class]="cardClass()"  [style]="{'background-image': 'url(' + imageSource + ')'}" (click)="onNavigate()">
+        <div class="mask d-flex flex-row align-items-end">
+            <div class="text-container flex-fill d-flex justify-content-center align-items-center">
+                <span class="text-danger text-center">{{description}}</span>
+            </div>
+        </div>
+    </div>
+</div>

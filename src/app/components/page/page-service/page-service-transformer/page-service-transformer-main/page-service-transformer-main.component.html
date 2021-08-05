@@ -1,0 +1,67 @@
+<div class="w3-animate-bottom">
+    <app-intro 
+        image-source="/assets/images/page-service-transformer-intro.jpg"
+        page-name="งานตรวจสอบและบำรุงรักษาหม้อแปลง"
+    ></app-intro>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-5">
+                <app-content-header header="งานตรวจสอบและบำรุงรักษาหม้อแปลง" description="การบำรุงรักษาหม้อแปลงควรทำอย่างน้อยปีละ 1 ครั้ง">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-4 py-4" *ngFor="let detail of details">
+                            <app-detail-card-b [image-source]="detail.imageSource" [header-text]="detail.headerText" [description]="detail.description"></app-detail-card-b>
+                        </div>
+                    </div>
+                </app-content-header>
+            </div>
+            <div class="col-12 pt-5">
+                <app-content-header header="แพ็กเกจบำรุงรักษาหม้อแปลง">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-4 py-4" *ngFor="let product of products">
+                            <app-package-card [product-name]="product.productName" [descriptions]="product.descriptions" [price]="product.price"></app-package-card>
+                        </div>
+                    </div>
+                </app-content-header>
+            </div>
+            <div class="col-12 pb-5">
+                <div class="row">
+                    <div class="col-12 col-lg">
+                        <p class="mb-0 fs-16">หมายเหตุ:</p>
+                        <ul>
+                            <li class="fs-16">อัตราค่าบริการยังไม่รวมภาษีมูลค่าเพิ่ม ค่ากรองน้ำมันหม้อแปลง และค่าวัสดุอุปกรณ์จัดเปลี่ยนใหม่หรือซ่อมแซม</li>
+                            <li class="fs-16">เงื่อนไขอื่นๆ เป็นไปตามที่บริษัทฯ กำหนด</li>
+                        </ul>  
+                    </div>
+                    <div class="col-lg-auto d-grid gap-2" style="min-height: 100px;">
+                        <button type="button" class="btn btn-danger btn-rounded" [routerLink]="['/service/transformer/quotation']"><span class="fs-5">ขอใบเสนอราคา</span></button>
+                        <button type="button" class="btn btn-danger btn-rounded"><span class="fs-5">ให้ BiSME ติดต่อกลับ</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 py-5">
+                <app-content-header header="อุปกรณ์ที่เราบำรุงรักษา">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-7 col-lg-6 p-lg-5 p-md-3 p-sm-0">
+                            <p class="fs-20 mb-0"><img src="/assets/images/1.png"> ฮอทไลน์แคล้มป์  (Hotline Clamp)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/2.png"> ลูกถ้วยไลน์โพสต์  (Line Post Insulator)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/3.png"> กับดักฟ้าผ่า  (Surge Arrestor)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/4.png"> ฟิวส์แรงสูง  (Drop Out Fuse)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/5.png"> ฟิวส์แรงต่ำ  (LT Switch)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/6.png"> สารดูดความชื้น  (Silica Gel)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/7.png"> บุชชิ่งหม้อแปลง  (Bushing)</p>
+                            <p class="fs-20 mb-0"><img src="/assets/images/8.png"> ตัวหม้อแปลง  (Transformer)</p>
+                        </div>
+                        <div class="col-12 col-md-5 col-lg-5">
+                            <img class="img-fluid" src="/assets/images/ma-list.png">
+                        </div>
+                    </div>
+                </app-content-header>
+            </div>
+            <div class="col-12 py-5">
+                <app-content-header header="19 รายการบำรุงรักษาหม้อแปลง">
+
+                </app-content-header>
+            </div>
+        </div>
+    </div>
+</div>

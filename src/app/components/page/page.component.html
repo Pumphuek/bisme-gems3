@@ -1,0 +1,107 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/home']">
+            <img src="/assets/images/logo.png">
+        </a>
+        <button class="navbar-toggler" type="button" (click)="basicNav.toggle()" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav" mdbCollapse #basicNav="mdbCollapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active', 'text-decoration-underline']">หน้าแรก</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/service/home']" [routerLinkActive]="['active', 'text-decoration-underline']">บริการของเรา</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">เกี่ยวกับเรา</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">บทความ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">ติดต่อเรา</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">ร่วมงานกับเรา</a>
+                </li>
+            </ul>
+            <form class="d-flex input-group w-auto">
+                <a type="button" class="btn btn-danger btn-rounded form-control" href="tel:+668-9018-2657">
+                    <i class="fas fa-mobile-alt"></i> 089-0182657
+                </a>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="content">
+    <router-outlet></router-outlet>    
+</div>
+<div class="container-fluid p-4 text-white footer">
+    <div class="row">
+        <div class="col-lg-4 col-md-12 pb-5 px-3">
+            <img src="/assets/images/logo.png">
+            <p class="mb-0 fs-16">การไฟฟ้าส่วนภูมิภาค (สำนักงานใหญ่)</p>
+            <p class="mb-0 fs-16">เลขที่ 200 ถนนงามวงศ์วาน แขวงลาดยาว</p>
+            <p class="mb-0 fs-16">เขตจตุจักร กรุงเทพ 10900</p>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pb-5">
+                    <span class="fs-20">เกี่ยวกับเรา</span>
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a class="text-white fs-16">เกี่ยวกับบิสมี</a>
+                        </li>
+                        <li>
+                            <a class="text-white fs-16">บทความ</a>
+                        </li>
+                        <li>
+                            <a class="text-white fs-16">เงื่อนไขการให้บริการ</a>
+                        </li>
+                        <li>
+                            <a class="text-white fs-16">นโยบายความเป็นส่วนตัว</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pb-5">
+                    <span class="fs-20">สำหรับลูกค้า</span>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white fs-16">บริการของเรา</a>
+                        </li>
+                        <li>
+                            <a class="text-white fs-16">ติดตามสถานะงานบริการ</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pb-5">
+                    <span class="fs-20">สำหรับพาร์ทเนอร์</span>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white fs-16">สมัครเป็นพาร์ทเนอร์กับเรา</a>
+                        </li>
+                        <li>
+                            <a class="text-white fs-16">เงื่อนไขการสมัคร</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 pb-5">
+                    <span class="fs-20">ช่วยเหลือ</span>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white fs-16">คำถามที่พบบ่อย</a>
+                        </li>
+                        <li>
+                            <a class="text-white fs-16">ติดต่อเรา</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <span class="text-white fs-14">© 2021 BiSME. All Right Reserved. </span>
+        </div>
+    </div>
+</div>

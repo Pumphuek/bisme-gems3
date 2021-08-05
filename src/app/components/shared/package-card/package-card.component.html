@@ -1,0 +1,13 @@
+<div class="package-card card">
+    <div class="d-flex flex-column">
+        <div class="flex-fill header d-flex justify-content-center align-items-center">
+            <span class="h1 text-white">{{productName}}</span>
+        </div>
+        <div class="flex-fill d-flex flex-column justify-content-center align-items-center">
+            <p class="mb-0 text-center fs-5" *ngFor="let description of descriptions">{{description}}</p>
+        </div>
+        <div class="flex-fill d-flex justify-content-center align-items-center">
+            <p class="mb-0 text-center fs-5">ราคา <span class="price text-dark">{{price | number:'0.0'}}</span> บาท</p>
+        </div>
+    </div>
+</div>

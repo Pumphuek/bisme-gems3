@@ -1,0 +1,27 @@
+<div class="w3-animate-bottom">
+    <app-intro 
+        image-source="/assets/images/page-service-main-intro.jpg"
+        page-name="บริการหลักของเรา"
+    ></app-intro>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 py-5">
+                <app-content-header [header]="serviceHeader" [description]="serviceDescription">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-4 col-xl-3 py-4" *ngFor="let service of services">
+                            <app-image-card [description]="service.name" [image-source]="service.imageSource" [redirect-to]="service.redirectTo"></app-image-card>
+                        </div>
+                    </div>
+                </app-content-header>
+            </div>
+            <div class="col-12 py-5 d-grid gap-3">
+                <app-detail-card-c 
+                    *ngFor="let detail of details"
+                    [header-text]="detail.name"
+                    [descriptions]="detail.descriptions"
+                    [image-source]="detail.imageSource"
+                ></app-detail-card-c>
+            </div>
+        </div>
+    </div>
+</div>

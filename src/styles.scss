@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$bisme-primary: mat.define-palette(mat.$indigo-palette);
+$bisme-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+$bisme-warn: mat.define-palette(mat.$red-palette);
+
+$bisme-theme: mat.define-light-theme((
+  color: (
+    primary: $bisme-primary,
+    accent: $bisme-accent,
+    warn: $bisme-warn,
+  )
+));
+
+@include mat.all-component-themes($bisme-theme);
+
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
+@import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
+ 
+@import '~mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+html, body { 
+    height: 100%; 
+    scroll-behavior: smooth; 
+}
+
+body { 
+    margin: 0; 
+    font-family: 'Kanit', 'Roboto', sans-serif;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.mat-form-field {
+    line-height: 1.5em;
+}

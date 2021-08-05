@@ -1,0 +1,19 @@
+<div class="bg-image intro" [style]="{'background-image': 'url(' + imageSource + ')'}">
+    <div class="mask" style="background-color: rgba(150,150,150,0.4);">
+        <div class="d-flex px-3 px-lg-5 pt-5 align-items-start flex-column h-100">
+            <div class="container-fluid" *ngIf="introTextHeader != '' || introTextContent != ''">
+                <div class="row">
+                    <div class="col-12 col-md-10 col-lg-8 col-xl-6 p-3 p-lg-5 rounded text-container">
+                        <p class="text-danger h3" [innerHTML]="introTextHeader"></p>
+                        <p class="fs-5" [innerHTML]="introTextContent"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto">
+                <div class="page-name" *ngIf="pageName != ''">
+                    <span class="h1">{{pageName}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

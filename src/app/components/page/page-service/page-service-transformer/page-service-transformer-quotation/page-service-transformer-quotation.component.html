@@ -1,0 +1,119 @@
+<div class="w3-animate-bottom">
+    <div class="container pt-5">
+        <app-content-header [header]="header" [description]="description">
+            <form (ngSubmit)="onConfirm()" [formGroup]="quotationForm">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-6 pt-5">
+                        <div class="row">
+                            <div class="col-12 col-md-6 pb-3">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>ชื่อ</mat-label>
+                                    <input matInput type="text" formControlName="firstName"/>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'firstName', 'required')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกชื่อ
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-md-6 pb-3">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>นามสกุล</mat-label>
+                                    <input matInput type="text" formControlName="lastName"/>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'lastName', 'required')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกนามสกุล
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 pb-3">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>ชื่อบริษัทฯ/กิจการ</mat-label>
+                                    <input matInput type="text" formControlName="businessName"/>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'businessName', 'required')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกชื่อบริษัทฯ/กิจการ
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 pb-3">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>ที่อยู่บริษัทฯ/กิจการ</mat-label>
+                                    <input matInput type="text" formControlName="businessAddress"/>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'businessAddress', 'required')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกที่อยู่บริษัทฯ/กิจการ
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-md-6 pb-3">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>เบอร์โทร</mat-label>
+                                    <input matInput type="tel" formControlName="phoneNumber"/>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'phoneNumber', 'required')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรูณากรอกเบอร์โทร
+                                    </mat-error>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'phoneNumber', 'invalidPhoneNumber')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกเป็นตัวเลข 10 หลัก
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-12 col-md-6 pb-3">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>อีเมล</mat-label>
+                                    <input matInput type="text" formControlName="email"/>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'email', 'required')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกอีเมล
+                                    </mat-error>
+                                    <mat-error *ngIf="formService.hasError(quotationForm, 'email', 'email')">
+                                        <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกให้ถูกรูปแบบ
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <ng-container formArrayName="items" *ngFor="let item of items.controls; let i = index;">
+                                <ng-container [formGroupName]="i">
+                                    <div class="col-5 col-sm-6 col-md-6 pb-3 w3-animate-right" [style]="itemStyle(i)">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>ขนาดหม้อแปลง</mat-label>
+                                            <mat-select formControlName="transformerSize">
+                                                <mat-option value="TR1">ไม่เกิน 250 kVA</mat-option>
+                                                <mat-option value="TR2">มากกว่า 250 - 1,500 kVA</mat-option>
+                                                <mat-option value="TR3">มากกว่า 1,500 kVA</mat-option>
+                                            </mat-select>
+                                            <mat-error *ngIf="formService.hasError(items.controls[i], 'transformerSize', 'required')">
+                                                <i class="fas fa-exclamation-circle text-red"></i> กรูณาเลือกขนาดหม้อแปลง
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-5 col-sm-5 col-md-6 pb-3 w3-animate-right" align="end" [style]="itemStyle(i)">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>จำนวนเครื่อง</mat-label>
+                                            <input matInput type="number" formControlName="quantity"/>
+                                            <mat-error *ngIf="formService.hasError(items.controls[i], 'quantity', 'required')">
+                                                <i class="fas fa-exclamation-circle text-red"></i> กรุณาระบุจำนวนหม้อแปลง
+                                            </mat-error>
+                                            <mat-error *ngIf="formService.hasError(items.controls[i], 'quantity', 'invalidNumber') && formService.hasError(quotationForm, 'quantity', 'invalidNotZeroNumber')">
+                                                <i class="fas fa-exclamation-circle text-red"></i> กรุณากรอกเป็นตัวเลข
+                                            </mat-error>
+                                            <mat-error *ngIf="!formService.hasError(items.controls[i], 'quantity', 'invalidNumber') && formService.hasError(items.controls[i], 'quantity', 'invalidNotZeroNumber')">
+                                                <i class="fas fa-exclamation-circle text-red"></i> ต้องมากกว่า 0 เครื่อง
+                                            </mat-error>
+                                        </mat-form-field>
+                                        <button *ngIf="i != 0 && state == 'progressing'" type="button" class="btn btn-danger btn-floating" style="position: relative; right: -40px; top: -70px;" (click)="deleteItem(i)">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </ng-container>         
+                            </ng-container>
+                            <div *ngIf="items.controls.length < 3 && state != 'checking'" class="col-12 pb-5 w3-animate-right">
+                                <span [class]="addButtonClass()" (click)="addItem()" [style]="addButtonStyle()"><i class="fas fa-plus-circle"></i> เพิ่มขนาดหม้อแปลง</span>
+                            </div>
+                            <div *ngIf="state == 'progressing'" class="col-12 pb-5 d-flex justify-content-center w3-animate-bottom">
+                                <button type="button" class="btn btn-dark btn-rounded check min" [disabled]="quotationForm.invalid" (click)="onCheck()"><span class="fs-6">ดำเนินการต่อ</span></button>
+                            </div>
+                            <div *ngIf="state == 'checking'" class="col-12 pb-5 d-flex justify-content-around flex-wrap w3-animate-bottom">
+                                <button type="button" class="btn btn-danger btn-rounded min" (click)="onEdit()"><span class="fs-6">แก้ไข</span></button>
+                                <button type="button" class="btn btn-success btn-rounded min" (click)="onConfirm()"><span class="fs-6">ยืนยัน</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </app-content-header>
+    </div>
+</div>

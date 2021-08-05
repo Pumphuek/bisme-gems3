@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-12 pb-3">
+        <p class="h1">รู้หรือไม่ ?</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 pb-3">
+        <p class="fs-5 text-break indent">
+            หม้อแปลงไฟฟ้า ถูกใช้งานตลอดเวลา ย่อมมีการสึกหรอเสื่อมสภาพเช่นเดียวกับรถยนต์ เพื่อยืดอายุการใช้งานของหม้อแปลง จึงควรบำรุงรักษา ตรวจสอบสภาพหม้อแปลงเป็นประจำอย่างต่อเนื่อง 
+            <span class="fs-4 text-dark">อย่างน้อยปีละ 1 ครั้ง </span>
+            โดยมี 
+            <span class="text-danger fs-4">ข้อบ่งชี้ที่แสดงความเสื่อมสภาพของหม้อแปลง และอุปกรณ์ประกอบ </span> 
+            ดังนี้
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 col-lg-8">
+        <div class="row h-100">
+            <div class="col-6 py-2 d-grid" *ngFor="let choice of choices; let i = index;">
+                <button type="button" [class]="buttonClass(i)" (click)="onSelectClick(i)"><span [class]="spanClass(i)">{{choice.text}}</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-4 p-2">
+        <div class="bg-image shadow-2-strong rounded ratio" [style]="{'background-image': 'url(' + choices[selected].image + ')'}">
+            <div class="mask">
+                <div class="d-flex justify-content-center align-items-end h-100">
+                    <div class="text-container text-center w-100">
+                        <span class="text-break">{{choices[selected].description}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
